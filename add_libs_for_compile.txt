@@ -1,1 +1,0 @@
-sudo apt install build-essential pkg-config autoconf bison mcrypt re2c gettext libxml2-dev libxslt-dev libyaml-dev libtidy-dev libbz2-dev libicu-dev libssl-dev libcurl4-openssl-dev libncurses5-dev libltdl-dev libjpeg-dev libpng-dev libpspell-dev libreadline-dev libffi-dev libgdbm3 libgdbm-dev zlib1g-dev libsqlite3-dev
