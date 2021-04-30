@@ -59,6 +59,16 @@ if [[ $(command -v git) ]]; then
   alias g=git
 fi
 
+# docker
+if [[ $(command -v docker) ]]; then
+  alias d=docker
+fi
+
+# docker-compose
+if [[ $(command -v docker-compose) ]]; then
+  alias dc=docker-compose
+fi
+
 # neovim
 if [[ $(command -v nvim) ]]; then
   alias vim=nvim
