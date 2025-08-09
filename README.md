@@ -20,6 +20,39 @@
 
 新しいマシンをセットアップする際は、以下の手順に従ってください。
 
+### **Step 0: GitHubへのSSH接続準備**
+
+このリポジトリはSSH経由でのアクセスのため、最初に一時的なSSHキーを新しいマシンで作成し、GitHubに登録する必要があります。
+
+1.  **新しいSSHキーを作成します。**
+    ターミナルで以下のコマンドを実行します。パスフレーズなどを聞かれますが、すべてEnterキーを押して空のまま進めて構いません（このキーはセットアップ後に破棄できます）。
+    ```bash
+    ssh-keygen -t ed25519 -C "bootstrap-key-for-new-machine"
+    ```
+
+2.  **ssh-agentを起動し、キーを追加します。**
+    ```bash
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+    ```
+
+3.  **公開鍵をコピーします。**
+    以下のコマンドで表示される公開鍵の文字列（`ssh-ed25519`で始まり、`bootstrap-key...`で終わる1行）をすべてコピーしてください。
+    ```bash
+    cat ~/.ssh/id_ed25519.pub
+    ```
+
+4.  **GitHubに公開鍵を登録します。**
+    ブラウザでGitHubを開き、[Settings > SSH and GPG keys](https://github.com/settings/keys) にアクセスします。「New SSH key」ボタンを押し、先ほどコピーした公開鍵を貼り付けて登録します。
+
+5.  **接続を確認します。**
+    以下のコマンドを実行し、`Hi <Your-Username>! You've successfully authenticated...` というメッセージが表示されれば成功です。
+    ```bash
+    ssh -T git@github.com
+    ```
+
+---
+
 ### Step 1: 手作業による下準備（OS別）
 
 #### on macOS
