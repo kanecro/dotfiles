@@ -1,12 +1,12 @@
 ################################################################################
 # --- OS固有の設定 ---
 ################################################################################
-{{ if eq .os "darwin" -}}
+{{ if eq .chezmoi.os "darwin" -}}
 	# macOS用の設定
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-{{ else if eq .os "linux" -}}
+{{ else if eq .chezmoi.os "linux" -}}
 	# Linux (Chromebook / WSL2) 用の設定
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
