@@ -1,0 +1,5 @@
+[user]
+	name = "Naoki Kaneshiro"
+	email = {{ .email | quote }}
+[core]
+	editor = "vim"
