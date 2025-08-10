@@ -13,7 +13,7 @@ Geminiがプロジェクトのコンテキストを正確に理解し、より�
 ## プロジェクトのコンテキスト
 
 - **プロジェクト名**: dotfiles
-- **概要**: zsh環境にて[chezmoi](https://www.chezmoi.io/)と[Homebrew](https://brew.sh/)を基盤として快適なCLI環境を構築することを目的とします。
+- **概要**: zsh環境にて[chezmoi](https://www.chezmoi.io/)と[Homebrew](https://brew.sh/)、[Zinit](https://github.com/zdharma-continuum/zinit)を基盤として快適なCLI環境を構築することを目的とします。
 - **使用技術**:
     - CLI環境を構築する手順は[README.md](README.md)を確認してください。
     - Homebrewによっていインストールされている各種フレームワーク/ライブラリ/アプリケーションは[dot_Brewfile](dot_Brewfile)を確認してください。

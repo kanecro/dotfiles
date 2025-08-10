@@ -26,6 +26,14 @@ compinit
 export EDITOR='vim'
 export VISUAL='vim'
 
-# Gemini APIキーの設定
-# export GEMINI_API_KEY={{ (bitwarden "item" "GEMINI_API_KEY").notes }}
+################################################################################
+# --- Zinit ---
+################################################################################
+### Zinit
+source "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git/zinit.zsh"
+
+# Load plugins
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
 
