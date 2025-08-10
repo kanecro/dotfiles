@@ -122,18 +122,7 @@
     brew install chezmoi bitwarden-cli
     ```
 
-2.  **chezmoiを実行してdotfilesを展開します。**
-    以下のコマンドの `<YOUR_GITHUB_URL>` をあなたのGitHubリポジトリURLに置き換えて実行してください。
-    ```bash
-    chezmoi init <YOUR_GITHUB_URL> --apply
-    ```
-    このコマンドが、リポジトリのclone、設定ファイルの配置、`Brewfile`に基づくパッケージのインストールまで全て行います。
-
----
-
-### Step 3: セットアップ後の手作業
-
-1.  **Bitwardenにログインします。**
+2.  **Bitwardenにログインします。**
     秘密情報を`chezmoi`が取得できるように、Bitwarden CLIでログインします。
     ```bash
     bw login
@@ -143,13 +132,14 @@
     export BW_SESSION=$(bw unlock --raw)
     ```
 
-2.  **再度`chezmoi apply`を実行します。**
-    Bitwardenから取得した秘密情報に依存するテンプレートがある場合、このコマンドで正しく反映させます。
+3.  **chezmoiを実行してdotfilesを展開します。**
+    以下のコマンドの `<YOUR_GITHUB_URL>` をあなたのGitHubリポジトリURLに置き換えて実行してください。
     ```bash
-    chezmoi apply
+    chezmoi init <YOUR_GITHUB_URL> --apply
     ```
+    このコマンドが、リポジトリのclone、`Brewfile`に基づくパッケージのインストール、Bitwardenからの情報取得、設定ファイルの配置まで全て行います。
 
-3.  **ターミナルを再起動します。**
+4.  **ターミナルを再起動します。**
     全ての変更と設定を完全に読み込むため、ターミナルを再起動してください。
 
 これでセットアップは完了です。
