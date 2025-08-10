@@ -20,6 +20,8 @@
 
 新しいマシンをセットアップする際は、以下の手順に従ってください。
 
+---
+
 ### **Step 0: GitHubへのSSH接続準備**
 
 このリポジトリはSSH経由でのアクセスのため、最初に一時的なSSHキーを新しいマシンで作成し、GitHubに登録する必要があります。
@@ -60,7 +62,7 @@
 1.  **Homebrewをインストールします。**
     ターミナルを開き、以下のコマンドを実行します。これにより、Xcode Command Line Tools（`git`を含む）も自動でインストールされます。
     ```bash
-    /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh))"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
 #### on Linux (Debian / Ubuntu / Chromebook)
@@ -77,7 +79,7 @@
 
 3.  **Homebrewをインストールします。**
     ```bash
-    /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh))"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
     インストール後、指示に従ってPATHを通してください。
 
