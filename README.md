@@ -123,9 +123,9 @@
     ```
 
 2.  **chezmoiを実行してdotfilesを展開します。**
-    以下のコマンドの `<YOUR_GITHUB_USERNAME>` をあなたのGitHubユーザー名に置き換えて実行してください。
+    以下のコマンドの `<YOUR_GITHUB_URL>` をあなたのGitHubリポジトリURLに置き換えて実行してください。
     ```bash
-    chezmoi init <YOUR_GITHUB_USERNAME> --apply
+    chezmoi init <YOUR_GITHUB_URL> --apply
     ```
     このコマンドが、リポジトリのclone、設定ファイルの配置、`Brewfile`に基づくパッケージのインストールまで全て行います。
 
