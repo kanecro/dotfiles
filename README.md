@@ -65,6 +65,15 @@
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
+2.  **`brew`コマンドにパスを通します。**
+    インストール後、ターミナルに表示される「**Next steps**」の指示に従ってください。Apple Silicon Macの場合、通常は以下の2つのコマンドを実行します。
+    ```bash
+    # 設定ファイルに書き込む
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+    # 現在のターミナルに即時反映させる
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    ```
+
 #### on Linux (Debian / Ubuntu / Chromebook)
 
 1.  **システムを最新の状態に更新します。**
@@ -83,7 +92,16 @@
     ```
     インストール後、指示に従ってPATHを通してください。
 
-4.  **Zshをインストールし、デフォルトシェルに変更します。**
+4.  **`brew`コマンドにパスを通します。**
+    インストール後、ターミナルに表示される「**Next steps**」の指示に従ってください。通常は以下の2つのコマンドを実行します。
+    ```bash
+    # 設定ファイルに書き込む
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.zprofile
+    # 現在のターミナルに即時反映させる
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    ```
+
+5.  **Zshをインストールし、デフォルトシェルに変更します。**
     ```bash
     # Zshのインストール
     sudo apt install -y zsh
