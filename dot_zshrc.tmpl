@@ -2,14 +2,16 @@
 # --- OS固有の設定 ---
 ################################################################################
 {{ if eq .chezmoi.os "darwin" -}}
-	# macOS用の設定
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+# macOS用の設定
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 {{ else if eq .chezmoi.os "linux" -}}
-	# Linux (Chromebook / WSL2) 用の設定
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+# Linux (Chromebook / WSL2) 用の設定
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 {{ end -}}
 
@@ -23,4 +25,7 @@ compinit
 # エディタ設定など
 export EDITOR='vim'
 export VISUAL='vim'
+
+# Gemini APIキーの設定
+export GEMINI_API_KEY={{ (bitwarden "item" "GEMINI_API_KEY").notes }}
 
