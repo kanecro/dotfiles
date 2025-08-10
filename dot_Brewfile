@@ -1,3 +1,4 @@
 brew "bitwarden-cli"
 brew "chezmoi"
 brew "gemini-cli"
+brew "gh"
