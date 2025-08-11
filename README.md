@@ -1,57 +1,58 @@
 # My Dotfiles
 
-個人の開発環境を管理するためのdotfilesです。
-[chezmoi](https://www.chezmoi.io/) を使って管理しています。
+個人の開発環境（dotfiles）を[chezmoi](https://www.chezmoi.io/)で管理するためのリポジトリです。
 
 ---
 
 ## 概要
 
-このdotfilesは、以下の環境で一貫したCLI体験を提供することを目指します。
+macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI体験を提供することを目指します。
+[Homebrew](https://brew.sh/)によるパッケージ管理と、[zsh](https://www.zsh.org/) + [Zinit](https://github.com/zdharma-continuum/zinit)による柔軟なシェル環境を基盤としています。
 
-* macOS
-* Linux (Chromebook, WSL2など)
+### 主な導入ツールと設定
 
-主な管理対象は `zsh`, `vim`, `git`, `homebrew` などです。
+*   **シェル**: `zsh`
+*   **パッケージ管理**: `Homebrew`
+*   **ターミナル**:
+    *   `lsd`: `ls`コマンドをモダンでカラフルな表示に強化
+    *   `fzf`: 強力な曖昧検索ツール
+    *   `tmux`: ターミナルマルチプレクサ
+    *   `fastfetch`: システム情報を表示するツール
+*   **Git連携**: `gh` (GitHub CLI)
+*   **zshプラグイン**:
+    *   `fast-syntax-highlighting`: コマンドのシンタックスハイライト
+    *   `zsh-autosuggestions`: コマンド履歴に基づく入力補完
+    *   `zsh-completions`: 各種コマンドの補完を強化
+    *   `anyframe`: コマンド履歴やディレクトリ履歴を`fzf`でインタラクティブに検索
 
 ---
 
 ## 新しいマシンへのセットアップ手順
 
-新しいマシンをセットアップする際は、以下の手順に従ってください。
+### Step 0: GitHubへのSSH接続準備
 
----
+このリポジトリはSSH経由でアクセスするため、最初に一時的なSSHキーを新しいマシンで作成し、GitHubに登録します。
 
-### **Step 0: GitHubへのSSH接続準備**
-
-このリポジトリはSSH経由でのアクセスのため、最初に一時的なSSHキーを新しいマシンで作成し、GitHubに登録する必要があります。
-
-1.  **新しいSSHキーを作成します。**
-    ターミナルで以下のコマンドを実行します。パスフレーズなどを聞かれますが、すべてEnterキーを押して空のまま進めて構いません（このキーはセットアップ後に破棄できます）。
+1.  **新しいSSHキーを作成**:
     ```bash
     ssh-keygen -t ed25519 -C "bootstrap-key-for-new-machine"
     ```
-
-2.  **ssh-agentを起動し、キーを追加します。**
+2.  **ssh-agentを起動し、キーを追加**:
     ```bash
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519
     ```
-
-3.  **公開鍵をコピーします。**
-    以下のコマンドで表示される公開鍵の文字列（`ssh-ed25519`で始まり、`bootstrap-key...`で終わる1行）をすべてコピーしてください。
+3.  **公開鍵をコピー**:
     ```bash
     cat ~/.ssh/id_ed25519.pub
     ```
-
-4.  **GitHubに公開鍵を登録します。**
-    ブラウザでGitHubを開き、[Settings > SSH and GPG keys](https://github.com/settings/keys) にアクセスします。「New SSH key」ボタンを押し、先ほどコピーした公開鍵を貼り付けて登録します。
-
-5.  **接続を確認します。**
-    以下のコマンドを実行し、`Hi <Your-Username>! You've successfully authenticated...` というメッセージが表示されれば成功です。
+4.  **GitHubに公開鍵を登録**:
+    [GitHubのSSHキー設定画面](https://github.com/settings/keys)で、コピーした公開鍵を登録します。
+5.  **接続を確認**:
     ```bash
     ssh -T git@github.com
     ```
+    `Hi <Your-Username>! ...`というメッセージが表示されれば成功です。
 
 ---
 
@@ -59,88 +60,98 @@
 
 #### on macOS
 
-1.  **Homebrewをインストールします。**
-    ターミナルを開き、以下のコマンドを実行します。これにより、Xcode Command Line Tools（`git`を含む）も自動でインストールされます。
+1.  **Homebrewをインストール**:
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-
-2.  **`brew`コマンドにパスを通します。**
-    インストール後、ターミナルに表示される「**Next steps**」の指示に従ってください。Apple Silicon Macの場合、通常は以下の2つのコマンドを実行します。
+2.  **`brew`コマンドにパスを通す**:
+    インストール後の指示に従います。Apple Siliconの場合は通常以下のコマンドです。
     ```bash
-    # 設定ファイルに書き込む
     (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
-    # 現在のターミナルに即時反映させる
     eval "$(/opt/homebrew/bin/brew shellenv)"
     ```
 
 #### on Linux (Debian / Ubuntu / Chromebook)
 
-1.  **システムを最新の状態に更新します。**
+1.  **必須パッケージをインストール**:
     ```bash
     sudo apt update && sudo apt upgrade -y
-    ```
-
-2.  **必須パッケージをインストールします。**
-    ```bash
     sudo apt install -y build-essential curl file git
     ```
-
-3.  **Homebrewをインストールします。**
+2.  **Homebrewをインストール**:
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-    インストール後、指示に従ってPATHを通してください。
-
-4.  **`brew`コマンドにパスを通します。**
-    インストール後、ターミナルに表示される「**Next steps**」の指示に従ってください。通常は以下の2つのコマンドを実行します。
+3.  **`brew`コマンドにパスを通す**:
+    インストール後の指示に従います。
     ```bash
-    # 設定ファイルに書き込む
     (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.zprofile
-    # 現在のターミナルに即時反映させる
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     ```
-
-5.  **Zshをインストールし、デフォルトシェルに変更します。**
+4.  **Zshをインストールし、デフォルトシェルに変更**:
     ```bash
-    # Zshのインストール
     sudo apt install -y zsh
-
-    # デフォルトシェルに設定
     chsh -s $(which zsh)
     ```
-    **重要:** 設定を反映させるため、ここで一度 **ログアウトして再ログイン** するか、マシンを再起動してください。
+    **重要**: 設定を反映させるため、一度ログアウトして再ログインしてください。
 
 ---
 
 ### Step 2: dotfilesの展開（自動化）
 
-下準備が終わったら、ここからは自動で環境が構築されます。
-
-1.  **chezmoiとBitwarden CLIをインストールします。**
+1.  **chezmoiとBitwarden CLIをインストール**:
     ```bash
     brew install chezmoi bitwarden-cli
     ```
-
-2.  **Bitwardenにログインします。**
-    秘密情報を`chezmoi`が取得できるように、Bitwarden CLIでログインします。
+2.  **Bitwardenにログイン**:
+    `chezmoi`がGitの設定などで使用する個人情報（名前、メールアドレス）を安全に取得するために`bw` (Bitwarden CLI) を使います。
     ```bash
     bw login
     ```
-    その後、セッションキーを取得して環境変数に設定します。（このセッションキーはターミナルを閉じるまで有効です）
+    その後、セッションキーを取得して環境変数に設定します。
     ```bash
     export BW_SESSION=$(bw unlock --raw)
     ```
-
-3.  **chezmoiを実行してdotfilesを展開します。**
-    以下のコマンドの `<YOUR_GITHUB_URL>` をあなたのGitHubリポジトリURLに置き換えて実行してください。
+3.  **chezmoiを実行してdotfilesを展開**:
+    `<YOUR_GITHUB_URL>`をあなたのリポジトリURLに置き換えて実行してください。
     ```bash
     chezmoi init <YOUR_GITHUB_URL> --apply
     ```
-    このコマンドが、リポジトリのclone、`Brewfile`に基づくパッケージのインストール、Bitwardenからの情報取得、設定ファイルの配置まで全て行います。
-    また、この処理の中でZinitのインストールも自動的に実行されます。
+    このコマンドが、リポジトリのclone、`Brewfile`に基づくパッケージのインストール、`zinit`のインストール、設定ファイルの配置まで全てを自動で行います。
 
-4.  **ターミナルを再起動します。**
-    全ての変更と設定を完全に読み込むため、ターミナルを再起動してください。
+4.  **ターミナルを再起動**:
+    全ての変更を完全に読み込むため、ターミナルを再起動してください。セットアップはこれで完了です。
 
-これでセットアップは完了です。
+---
+
+## 導入される主な設定
+
+このdotfilesを適用すると、主に以下の設定が有効になります。
+
+### `zsh`エイリアス
+
+| エイリアス | コマンド | 説明 |
+|:---|:---|:---|
+| `g` | `git` | `git`コマンド |
+| `l` | `lsd` | `lsd`によるファイル一覧表示 |
+| `ll` | `lsd -l` | 詳細表示 |
+| `la` | `lsd -a` | 隠しファイルを含む一覧 |
+| `lla`| `lsd -la`| 隠しファイルを含む詳細表示 |
+| `lt` | `lsd --tree`| ツリー表示 |
+
+### `zsh`キーバインド
+
+| キーバインド | 機能 |
+|:---|:---|
+| `Ctrl + x` `k` | `kill`コマンドを`fzf`でインタラクティブに実行 |
+| `Ctrl + x` `d` | ディレクトリ履歴を`fzf`で検索・移動 |
+| `Ctrl + r` | コマンド履歴を`fzf`で検索・挿入 |
+
+### `git`エイリアス
+
+| エイリアス | コマンド |
+|:---|:---|
+| `st` | `status` |
+| `co` | `checkout` |
+| `br` | `branch` |
+| `ci` | `commit` |

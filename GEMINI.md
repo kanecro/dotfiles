@@ -45,9 +45,19 @@ Geminiがプロジェクトのコンテキストを正確に理解し、より�
 ## プロジェクトのコンテキスト
 
 - **プロジェクト名**: dotfiles
-- **概要**: zsh環境にて[chezmoi](https://www.chezmoi.io/)と[Homebrew](https://brew.sh/)、[Zinit](https://github.com/zdharma-continuum/zinit)を基盤として快適なCLI環境を構築することを目的とします。
+- **概要**: zsh環境にて[chezmoi](https://www.chezmoi.io/)による設定ファイル管理を中核とし、[Homebrew](https://brew.sh/)によるパッケージ導入、[Zinit](https://github.com/zdharma-continuum/zinit)によるプラグイン管理を組み合わせ、快適でモダンなCLI環境を構築することを目的とします。
 - **使用技術**:
-    - CLI環境を構築する手順は[README.md](README.md)を確認してください。
-    - Homebrewによっていインストールされている各種フレームワーク/ライブラリ/アプリケーションは[dot_Brewfile](dot_Brewfile)を確認してください。
+    - **設定管理**: `chezmoi`
+    - **パッケージ管理**: `Homebrew`
+    - **シェル**: `zsh`
+    - **zshプラグイン管理**: `Zinit`
+        - `fast-syntax-highlighting`
+        - `zsh-autosuggestions`
+        - `zsh-completions`
+        - `anyframe`
+    - **主要なCLIツール**: `lsd`, `fzf`, `tmux`, `gh`, `bitwarden-cli`
+    - **セットアップ手順**: [README.md](README.md)に記載
+    - **Homebrewパッケージリスト**: [dot_Brewfile](dot_Brewfile)を参照
 - **重要なファイル/ディレクトリ**:
-    - prefixが`dot_`で始まるファイル: `chezmoi apply` コマンドによって設定ファイルとして適用されます。
+    - `prefixがdot_`で始まるファイル: `chezmoi apply` コマンドによってホームディレクトリに設定ファイルとして適用されます。
+    - `run_once_`で始まるスクリプト: `chezmoi apply`時に一度だけ実行されるスクリプトです。
