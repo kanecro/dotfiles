@@ -59,5 +59,5 @@ Geminiがプロジェクトのコンテキストを正確に理解し、より�
     - **セットアップ手順**: [README.md](README.md)に記載
     - **Homebrewパッケージリスト**: [dot_Brewfile](dot_Brewfile)を参照
 - **重要なファイル/ディレクトリ**:
-    - `prefixがdot_`で始まるファイル: `chezmoi apply` コマンドによってホームディレクトリに設定ファイルとして適用されます。
+    - prefixが`dot_`で始まるファイル: `chezmoi apply` コマンドによってホームディレクトリに設定ファイルとして適用されます。
     - `run_once_`で始まるスクリプト: `chezmoi apply`時に一度だけ実行されるスクリプトです。

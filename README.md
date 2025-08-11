@@ -75,8 +75,7 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
 
 1.  **必須パッケージをインストール**:
     ```bash
-    sudo apt update && sudo apt upgrade -y
-    sudo apt install -y build-essential curl file git
+    sudo apt update && sudo apt upgrade -y && sudo apt install -y build-essential curl file git
     ```
 2.  **Homebrewをインストール**:
     ```bash
@@ -149,9 +148,9 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
 
 ### `git`エイリアス
 
-| エイリアス | コマンド |
-|:---|:---|
-| `st` | `status` |
-| `co` | `checkout` |
-| `br` | `branch` |
-| `ci` | `commit` |
+| エイリアス | コマンド | 説明 |
+|:---|:---|:---|
+| `st` | `status` | 変更状態の確認 |
+| `co` | `checkout` | ブランチやコミットの切り替え |
+| `br` | `branch` | ブランチの操作 |
+| `ci` | `commit` | 変更をコミット |
