@@ -22,29 +22,53 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -U compinit
 compinit
 
-### Zinit
+# コマンド履歴管理
+setopt incappendhistory
+HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
+HISTSIZE=1000
+SAVEHIST=1000
+
+# cd履歴管理(cdr)
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+#--------------------------------------------------
+# Zinit
+#--------------------------------------------------
 source "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+#--------------------
 # Load plugins
+#--------------------
 # シンタックスハイライト
 zinit light zdharma-continuum/fast-syntax-highlighting
 # 入力補完
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
-# コマンド履歴を検索
-zinit light zdharma/history-search-multi-word
+# コマンド履歴
+# zinit light zdharma/history-search-multi-word
 
+#----------
+# anyframe
+#----------
 # 色々な履歴
 zinit light mollifier/anyframe
+
 zstyle ":anyframe:selector:" use fzf
 zstyle ":anyframe:selector:fzf:" command 'fzf --extended'
+# zstyle ":anyframe:selector:" use fzf-tmux
+# zstyle ":anyframe:selector:fzf-tmux:" command 'fzf-tmux --extended'
 
-add-zsh-hook chpwd chpwd_recent_dirs
+# kill
+bindkey '^xk' anyframe-widget-kill
+# ディレクトリ履歴
+bindkey '^xd' anyframe-widget-cdr
 # コマンド実行履歴
-bindkey '^xr' anyframe-widget-execute-history
-bindkey '^x^r' anyframe-widget-execute-history
+# bindkey '^r' anyframe-widget-execute-history
+bindkey '^r' anyframe-widget-put-history
+
 
 # エディタ設定など
 export EDITOR='vim'
