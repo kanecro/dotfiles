@@ -22,18 +22,35 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -U compinit
 compinit
 
+### Zinit
+source "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load plugins
+# シンタックスハイライト
+zinit light zdharma-continuum/fast-syntax-highlighting
+# 入力補完
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+# コマンド履歴を検索
+zinit light zdharma/history-search-multi-word
+
+# 色々な履歴
+zinit light mollifier/anyframe
+zstyle ":anyframe:selector:" use fzf
+zstyle ":anyframe:selector:fzf:" command 'fzf --extended'
+
+add-zsh-hook chpwd chpwd_recent_dirs
+# コマンド実行履歴
+bindkey '^xr' anyframe-widget-execute-history
+bindkey '^x^r' anyframe-widget-execute-history
+
 # エディタ設定など
 export EDITOR='vim'
 export VISUAL='vim'
 
-################################################################################
-# --- Zinit ---
-################################################################################
-### Zinit
-source "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git/zinit.zsh"
-
-# Load plugins
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
-
+#+--------------------------------------------------
+# aliases
+#+--------------------------------------------------
+alias g="git"

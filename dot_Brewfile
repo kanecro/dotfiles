@@ -1,4 +1,7 @@
 brew "bitwarden-cli"
 brew "chezmoi"
+brew "fastfetch"
+brew "fzf"
 brew "gemini-cli"
 brew "gh"
+brew "tmux"
