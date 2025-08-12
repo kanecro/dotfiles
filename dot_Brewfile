@@ -1,3 +1,4 @@
+brew "bat"
 brew "bitwarden-cli"
 brew "chezmoi"
 brew "fastfetch"
