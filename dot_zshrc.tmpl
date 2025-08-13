@@ -92,17 +92,11 @@ bindkey '^xd' anyframe-widget-cdr
 # bindkey '^r' anyframe-widget-execute-history
 bindkey '^r' anyframe-widget-put-history
 
-#----------
-# starship
-#----------
+# Starship Prompt
+# StarshipはZinitで管理するのではなく、直接起動します
+# Starshipは高速なので、Zinitで遅延ロードする必要はありません
+eval "$(starship init zsh)"
 # Load starship theme
-# line 1: `starship` binary as command, from github release
-# line 2: starship setup at clone(create init.zsh, completion)
-# line 3: pull behavior same as clone, source init.zsh
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
 
 #+--------------------------------------------------
 # aliases
