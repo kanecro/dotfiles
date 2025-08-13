@@ -22,11 +22,30 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -U compinit
 compinit
 
-# コマンド履歴管理
-setopt incappendhistory
-HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
-HISTSIZE=1000
-SAVEHIST=1000
+# 便利なバインド
+# ↑: ctr+p
+# ↓: ctr+n
+# →: ctr+f
+# ←: ctr+b
+# 先頭: ctr+a
+# 最後尾: ctr+e
+# 前削除: ctr+h
+# 後削除: ctr+d
+bindkey -e
+
+#--------------------------------------------------
+# history
+#--------------------------------------------------
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+setopt share_history           # 履歴を他のシェルとリアルタイム共有する
+setopt hist_ignore_all_dups    # 同じコマンドをhistoryに残さない
+setopt hist_ignore_space       # historyに保存するときに余分なスペースを削除する
+setopt hist_reduce_blanks      # historyに保存するときに余分なスペースを削除する
+setopt hist_save_no_dups       # 重複するコマンドが保存されるとき、古い方を削除する
+setopt inc_append_history      # 実行時に履歴をファイルにに追加していく
 
 # cd履歴管理(cdr)
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
