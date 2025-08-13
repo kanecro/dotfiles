@@ -33,6 +33,10 @@ compinit
 # 後削除: ctr+d
 bindkey -e
 
+# エディタ設定など
+EDITOR='vim'
+VISUAL='vim'
+
 #--------------------------------------------------
 # history
 #--------------------------------------------------
@@ -88,10 +92,17 @@ bindkey '^xd' anyframe-widget-cdr
 # bindkey '^r' anyframe-widget-execute-history
 bindkey '^r' anyframe-widget-put-history
 
-
-# エディタ設定など
-export EDITOR='vim'
-export VISUAL='vim'
+#----------
+# starship
+#----------
+# Load starship theme
+# line 1: `starship` binary as command, from github release
+# line 2: starship setup at clone(create init.zsh, completion)
+# line 3: pull behavior same as clone, source init.zsh
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
 
 #+--------------------------------------------------
 # aliases
