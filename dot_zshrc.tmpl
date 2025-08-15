@@ -48,8 +48,8 @@ VISUAL='vim'
 # history
 #--------------------------------------------------
 HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=10000
+SAVEHIST=10000
 
 setopt share_history           # 履歴を他のシェルとリアルタイム共有する
 setopt hist_ignore_all_dups    # 同じコマンドをhistoryに残さない
@@ -119,4 +119,9 @@ alias lt="lsd --tree"
 
 alias cat="bat"
 
+# tmux aliases
 alias t="tmux"
+alias tls='tmux ls'
+alias tns='tmux new -s'
+alias ta='tmux attach -t'
+alias tks='tmux kill-session -t'
