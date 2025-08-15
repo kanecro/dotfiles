@@ -22,6 +22,13 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -U compinit
 compinit
 
+# 小文字でも大文字ディレクトリ、ファイルを補完できるようにする
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+setopt AUTO_CD           # ディレクトリ名だけでcdする
+setopt AUTO_PUSHD        # cd したら自動的にpushdする
+setopt PUSHD_IGNORE_DUPS # 重複したディレクトリをスタックに追加しない
+
 # 便利なバインド
 # ↑: ctr+p
 # ↓: ctr+n
