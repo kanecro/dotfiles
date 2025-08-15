@@ -55,9 +55,11 @@ Geminiがプロジェクトのコンテキストを正確に理解し、より�
         - `zsh-autosuggestions`
         - `zsh-completions`
         - `anyframe`
-    - **主要なCLIツール**: `lsd`, `fzf`, `tmux`, `gh`, `bitwarden-cli`
+    - **主要なCLIツール**: `lsd`, `fzf`, `tmux`, `gh`, `bitwarden-cli`, `git-delta`, `starship`, `tig`, `wezterm`
     - **セットアップ手順**: [README.md](README.md)に記載
     - **Homebrewパッケージリスト**: [dot_Brewfile](dot_Brewfile)を参照
 - **重要なファイル/ディレクトリ**:
     - prefixが`dot_`で始まるファイル: `chezmoi apply` コマンドによってホームディレクトリに設定ファイルとして適用されます。
     - `run_once_`で始まるスクリプト: `chezmoi apply`時に一度だけ実行されるスクリプトです。
+    - `dot_config/tmux/tmux.conf`: tmuxの設定ファイルです。
+    - `dot_config/wezterm/wezterm.lua`: weztermの設定ファイルです。

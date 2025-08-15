@@ -18,7 +18,11 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
     *   `fzf`: 強力な曖昧検索ツール
     *   `tmux`: ターミナルマルチプレクサ
     *   `fastfetch`: システム情報を表示するツール
-*   **Git連携**: `gh` (GitHub CLI)
+    *   `starship`: プロンプトをカスタマイズするツール
+*   **Git連携**:
+    *   `gh`: GitHub CLI
+    *   `tig`: CUIでGitを操作するツール
+    *   `git-delta`: `git diff`の表示を分かりやすくするツール
 *   **zshプラグイン**:
     *   `fast-syntax-highlighting`: コマンドのシンタックスハイライト
     *   `zsh-autosuggestions`: コマンド履歴に基づく入力補完
@@ -137,6 +141,7 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
 | `la` | `lsd -a` | 隠しファイルを含む一覧 |
 | `lla`| `lsd -la`| 隠しファイルを含む詳細表示 |
 | `lt` | `lsd --tree`| ツリー表示 |
+| `t` | `tmux` | `tmux`の起動 |
 
 ### `zsh`キーバインド
 
@@ -154,3 +159,26 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
 | `co` | `checkout` | ブランチやコミットの切り替え |
 | `br` | `branch` | ブランチの操作 |
 | `ci` | `commit` | 変更をコミット |
+
+### ターミナル環境
+
+#### wezterm
+
+ターミナルエミュレータ`wezterm`の設定ファイルです。LinuxとWindowsで共通の設定を管理しています。
+
+- `dot_config/wezterm/wezterm.lua`: Linux向けの設定
+- `windows/wezterm.lua`: Windows向けの設定
+
+#### tmux
+
+`tmux`のプレフィックスキーは `Ctrl + t` に設定されています。
+
+| キーバインド | 機能 |
+|:---|:---|
+| `Ctrl + t` `-` | ペインを水平分割 |
+| `Ctrl + t` `|` | ペインを垂直分割 |
+| `Ctrl + t` `h/j/k/l` | ペインを移動 |
+| `Ctrl + t` `H/J/K/L` | ペインをリサイズ |
+| `Ctrl + t` `n/p` | 次/前のペインへ移動 |
+| `Ctrl + t` `c` | 新しいウィンドウを作成 |
+| `Ctrl + t` `w` | ウィンドウ一覧を表示 |
