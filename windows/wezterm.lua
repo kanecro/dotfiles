@@ -11,7 +11,7 @@ config.default_domain = 'WSL:Ubuntu'
 -- 2. WSL内でchezmoiが管理している「本格的な」設定ファイルを読み込む
 -- =================================================================
 -- ▼▼▼ あなたのWSL環境のユーザー名に書き換えてください ▼▼▼
-local wsl_user = 'あなたのWSLユーザー名'
+local wsl_user = 'kanecro'
 -- ▲▲▲ あなたのWSL環境のユーザー名に書き換えてください ▲▲▲
 -- =================================================================
 local wsl_config_path = string.format('//wsl$/Ubuntu/home/%s/.config/wezterm/wezterm.lua', wsl_user)

@@ -127,6 +127,13 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
 
 ---
 
+## Windows環境でのセットアップ
+
+基本的なセットアップは上記の手順に従いますが、Windowsの場合は追加で以下の作業が必要です。
+詳細は[windows/README.md](windows/README.md)を参照してください。
+
+---
+
 ## 導入される主な設定
 
 このdotfilesを適用すると、主に以下の設定が有効になります。
@@ -179,6 +186,18 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
 | `Ctrl + t` `\|` | ペインを垂直分割 |
 | `Ctrl + t` `h/j/k/l` | ペインを移動 |
 | `Ctrl + t` `H/J/K/L` | ペインをリサイズ |
-| `Ctrl + t` `n/p` | 次/前のペインへ移動 |
+| `Ctrl + t` `n/p` | 次/前のウィンドウへ移動 |
 | `Ctrl + t` `c` | 新しいウィンドウを作成 |
 | `Ctrl + t` `w` | ウィンドウ一覧を表示 |
+
+#### tig
+
+`tig`では、より直感的な操作のためにキーバインドをいくつか変更しています。
+
+| キー | アクション | 説明 |
+|---|---|---|
+| `<Esc>` | `view-close` | 現在のビューを閉じる |
+| `g` | `move-first-line` | ファイルの先頭に移動する |
+| `E` | `view-grep` | grep検索を開始する |
+| `G` | `move-last-line` | ファイルの末尾に移動する |
+| `<Esc>g` | `:toggle commit-title-graph` | コミットグラフの表示/非表示を切り替える |

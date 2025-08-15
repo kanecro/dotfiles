@@ -63,3 +63,4 @@ Geminiがプロジェクトのコンテキストを正確に理解し、より�
     - `run_once_`で始まるスクリプト: `chezmoi apply`時に一度だけ実行されるスクリプトです。
     - `dot_config/tmux/tmux.conf`: tmuxの設定ファイルです。
     - `dot_config/wezterm/wezterm.lua`: weztermの設定ファイルです。
+    - `dot_tigrc`: `tig`の設定ファイルです。CUIでGitを快適に操作するためのカスタマイズが含まれています。
