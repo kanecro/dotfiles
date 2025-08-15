@@ -92,6 +92,14 @@ if os == "macOS" then
 elseif os == "Chromebook" then
   config.enable_wayland = false
   config.front_end = "OpenGL"
+
+  -- ▼▼▼ 日本語入力(IME)のための環境変数設定 ▼▼▼
+  -- Crostini/Debian環境で標準的なFcitx5を想定
+  config.set_environment_variables = {
+  GTK_IM_MODULE = 'fcitx',
+  QT_IM_MODULE = 'fcitx',
+  XMODIFIERS = '@im=fcitx',
+}
 end
 -- Windowsの起動設定は「起動用ファイル」が担当するため、ここには記述しません。
 
