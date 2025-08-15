@@ -14,9 +14,6 @@ set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
 # 検索時に大文字小文字を無視する
 set ignore-case = true
 
-# <Esc> を view-close
-bind generic <Esc>  view-close
-
 # g をファイル先頭に移動に変更、 view-grep を再割当て
 bind generic g      move-first-line
 bind generic E      view-grep
