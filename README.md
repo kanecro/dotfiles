@@ -148,7 +148,12 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
 | `la` | `lsd -a` | 隠しファイルを含む一覧 |
 | `lla`| `lsd -la`| 隠しファイルを含む詳細表示 |
 | `lt` | `lsd --tree`| ツリー表示 |
+| `cat`| `bat` | `cat`の代替として`bat`を使用 |
 | `t` | `tmux` | `tmux`の起動 |
+| `tls`| `tmux ls` | `tmux`のセッション一覧表示 |
+| `tns`| `tmux new -s` | `tmux`の新規セッション作成 |
+| `ta` | `tmux attach -t` | `tmux`のセッションにアタッチ |
+| `tks`| `tmux kill-session -t` | `tmux`のセッションを終了 |
 
 ### `zsh`キーバインド
 
