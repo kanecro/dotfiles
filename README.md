@@ -150,10 +150,10 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
 | `lt` | `lsd --tree`| ツリー表示 |
 | `cat`| `bat` | `cat`の代替として`bat`を使用 |
 | `t` | `tmux` | `tmux`の起動 |
-| `tls`| `tmux ls` | `tmux`のセッション一覧表示 |
-| `tns`| `tmux new -s` | `tmux`の新規セッション作成 |
+| `tl`| `tmux ls` | `tmux`のセッション一覧表示 |
+| `tn`| `tmux new -s` | `tmux`の新規セッション作成 |
 | `ta` | `tmux attach -t` | `tmux`のセッションにアタッチ |
-| `tks`| `tmux kill-session -t` | `tmux`のセッションを終了 |
+| `tk`| `tmux kill-session -t` | `tmux`のセッションを終了 |
 
 ### `zsh`キーバインド
 
@@ -201,8 +201,7 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
 
 | キー | アクション | 説明 |
 |---|---|---|
-| `<Esc>` | `view-close` | 現在のビューを閉じる |
 | `g` | `move-first-line` | ファイルの先頭に移動する |
-| `E` | `view-grep` | grep検索を開始する |
 | `G` | `move-last-line` | ファイルの末尾に移動する |
+| `E` | `view-grep` | grep検索を開始する |
 | `<Esc>g` | `:toggle commit-title-graph` | コミットグラフの表示/非表示を切り替える |
