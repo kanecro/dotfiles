@@ -28,6 +28,8 @@ macOSやLinux (Chromebook, WSL2など) 上で、一貫性のある快適なCLI�
     *   `zsh-autosuggestions`: コマンド履歴に基づく入力補完
     *   `zsh-completions`: 各種コマンドの補完を強化
     *   `anyframe`: コマンド履歴やディレクトリ履歴を`fzf`でインタラクティブに検索
+*   **エディタ**:
+    *   `Neovim`: `LazyVim` ディストリビューションをベースにカスタマイズ
 
 ---
 
