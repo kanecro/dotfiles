@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "chezmoi-workflows": {
+      "source": "terrylica/cc-skills",
+      "sourceType": "github",
+      "computedHash": "95a827b9db323d022736a8f7d07a2f25afa3afcfe48d14c346597d1f6c4a9a49"
+    },
+    "neovim": {
+      "source": "julianobarbosa/claude-code-skills",
+      "sourceType": "github",
+      "computedHash": "ff0e9af9763683f5cc5032b350fa9ce011368ae26b51f04a640cfc3a1f44a40e"
+    },
+    "tmux": {
+      "source": "steipete/clawdis",
+      "sourceType": "github",
+      "computedHash": "5c7ec7158f7d7283befbac1ada02ab35fd61cf1c8683fc9adab8674317fa116a"
+    },
+    "zsh-path-skill": {
+      "source": "julianobarbosa/claude-code-skills",
+      "sourceType": "github",
+      "computedHash": "e0046cac132dbe549f5ac0dbfae04cdb18c5e57b1420d5c471d2b69d85cc34e7"
+    }
+  }
+}
