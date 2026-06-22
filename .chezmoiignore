@@ -2,3 +2,6 @@ README.md
 GEMINI.md
 
 docs
+
+# Claude Code のランタイム生成物 (デバッグ用の生入力ログ。管理対象外)
+.claude/statusline-last-input.json
