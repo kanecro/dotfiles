@@ -128,3 +128,26 @@ alias tl='tmux ls'
 alias tn='tmux new -s'
 alias ta='tmux attach -t'
 alias tk='tmux kill-session -t'
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+export PATH="$HOME/.local/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/kanecro/.local/bin:$PATH"
+
+# OpenClaw Completion
+[ -f "/home/kanecro/.openclaw/completions/openclaw.zsh" ] && source "/home/kanecro/.openclaw/completions/openclaw.zsh"
+
+# direnv: ディレクトリごとの環境変数（プロジェクト単位の GCP アカウント固定など）
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
