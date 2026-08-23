@@ -140,12 +140,11 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 export PATH="$HOME/.local/bin:$PATH"
 
-
-# Added by Antigravity CLI installer
-export PATH="/home/kanecro/.local/bin:$PATH"
+# Antigravity CLI installer は $HOME/.local/bin を PATH へ足すが、直上の行と同じ内容なので置かない。
+# インストーラが ~/.zshrc へ再追記した場合はここではなく生成先の重複であり、chezmoi apply で消える。
 
 # OpenClaw Completion
-[ -f "/home/kanecro/.openclaw/completions/openclaw.zsh" ] && source "/home/kanecro/.openclaw/completions/openclaw.zsh"
+[ -f "$HOME/.openclaw/completions/openclaw.zsh" ] && source "$HOME/.openclaw/completions/openclaw.zsh"
 
 # direnv: ディレクトリごとの環境変数（プロジェクト単位の GCP アカウント固定など）
 if command -v direnv >/dev/null 2>&1; then
